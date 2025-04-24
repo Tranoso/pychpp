@@ -37,9 +37,4 @@ class HTUserTeamRegion(mc.TeamItemRegion, HTLightRegion):
 
 
 class HTUserTeamYouthTeam(mc.TeamItemYouthTeam, HTLightYouthTeam):
-    # Patch: YouthTeamId may be missing from XML for users without youth teams.
-    # pychpp does not support optional fields by default, so we intercept it here.
-    def __init__(self, *args, **kwargs):
-        if "YouthTeamId" not in kwargs:
-            kwargs["YouthTeamId"] = None
-        super().__init__(*args, **kwargs)
+    pass
