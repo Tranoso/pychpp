@@ -113,8 +113,11 @@ class TeamItemRegion(HTModel):
 
 
 class TeamItemYouthTeam(HTModel):    
+    """
+    Manager Compendium -> Teams -> Team item -> Youth team
+    """
     id: int = HTField(path='YouthTeamId')
-    name: str = HTField(path='YouthTeamName')
+    name: str = HTField(path='YouthTeamName')  # opcionalidad no sirve, lo ignoramos
     league: 'TeamItemYouthTeamLeague' = HTField(path='YouthLeague')
 
     def _transform_fields(self):
