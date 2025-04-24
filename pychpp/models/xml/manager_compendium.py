@@ -112,13 +112,18 @@ class TeamItemRegion(HTModel):
     name: str = HTField(path='RegionName')
 
 
-class TeamItemYouthTeam(HTModel):
+class TeamItemYouthTeam(HTModel):    
     """
     Manager Compendium -> Teams -> Team item -> Youth team
     """
     id: int = HTField(path='YouthTeamId')
-    name: str = HTField(path='YouthTeamName')
+    name: str = HTField(path='YouthTeamName')  # opcionalidad no sirve, lo ignoramos
     league: 'TeamItemYouthTeamLeague' = HTField(path='YouthLeague')
+
+    def __init__(self, *args, **kwargs):
+        # El campo 'YouthTeamId' a veces no viene si no tenés equipo juvenil
+        kwargs.setdefault("YouthTeamId", None)
+        super().__init__(*args, **kwargs)
 
 
 class TeamItemYouthTeamLeague(HTModel):
