@@ -149,7 +149,7 @@ class Avatar(HTModel):
     """
     Manager Compendium -> Avatar
     """
-    background_image: str = HTField(path='BackgroundImage')
+    background_image: Optional[str] = HTField(path='BackgroundImage')
     layers: Optional[List['AvatarLayer']] = HTField(path='../..', items='Layer')
 
 
