@@ -30,7 +30,7 @@ class ManagerCompendium(RequestManagerCompendium):
     national_teams_assistant: List['NationalTeamItem'] = HTField(
         path='Manager/NationalTeamAssistant', items='NationalTeam',
     )
-    avatar: 'Avatar' = HTField(path='Manager/Avatar')
+    avatar: Optional['Avatar'] = HTField(path='Manager/Avatar')
 
 
 class Language(HTModel):
