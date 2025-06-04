@@ -116,8 +116,8 @@ class TeamItemYouthTeam(HTModel):
     """
     Manager Compendium -> Teams -> Team item -> Youth team
     """
-    id: int = HTField(path='YouthTeamId')
-    name: str = HTField(path='YouthTeamName')
+    id: Optional[int] = HTField(path='YouthTeamId')
+    name: Optional[str] = HTField(path='YouthTeamName')
     league: 'TeamItemYouthTeamLeague' = HTField(path='YouthLeague')
 
 
@@ -141,7 +141,7 @@ class Avatar(HTModel):
     """
     Manager Compendium -> Avatar
     """
-    background_image: str = HTField(path='BackgroundImage')
+    background_image: Optional[str] = HTField(path='BackgroundImage')
     layers: Optional[List['AvatarLayer']] = HTField(path='../..', items='Layer')
 
 
