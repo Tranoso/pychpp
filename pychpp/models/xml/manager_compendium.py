@@ -118,7 +118,7 @@ class TeamItemYouthTeam(HTModel):
     """
     id: Optional[int] = HTField(path='YouthTeamId')
     name: Optional[str] = HTField(path='YouthTeamName')
-    league: 'TeamItemYouthTeamLeague' = HTField(path='YouthLeague')
+    league: Optional['TeamItemYouthTeamLeague'] = HTField(path='YouthLeague')
 
 
 class TeamItemYouthTeamLeague(HTModel):
