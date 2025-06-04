@@ -112,21 +112,13 @@ class TeamItemRegion(HTModel):
     name: str = HTField(path='RegionName')
 
 
-class TeamItemYouthTeam(HTModel):    
-    id: int = HTField(path='YouthTeamId')
-    name: str = HTField(path='YouthTeamName')
-    league: 'TeamItemYouthTeamLeague' = HTField(path='YouthLeague')
-
-    def _transform_fields(self):
-        try:
-            super()._transform_fields()
-        except ValueError as e:
-            if "YouthTeamId" in str(e):
-                self.id = None
-                self.name = None
-                self.league = None
-            else:
-                raise
+class TeamItemYouthTeam(HTModel):
+    """
+    Manager Compendium -> Teams -> Team item -> Youth team
+    """
+    id: Optional[int] = HTField(path='YouthTeamId')
+    name: Optional[str] = HTField(path='YouthTeamName')
+    league: Optional['TeamItemYouthTeamLeague'] = HTField(path='YouthLeague')
 
 
 class TeamItemYouthTeamLeague(HTModel):
