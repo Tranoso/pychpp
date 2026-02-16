@@ -11,7 +11,7 @@ class RequestYouthPlayerDetails(HTModel):
     Youth Player Details - Request arguments
     """
     SOURCE_FILE = 'youthplayerdetails'
-    LAST_VERSION = '1.2'
+    LAST_VERSION = '1.3'
 
     _r_action_type: Optional[str] = HTInitVar('actionType',
                                               init_arg='action_type',
